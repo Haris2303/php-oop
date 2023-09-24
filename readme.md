@@ -1,3 +1,22 @@
+# Table of Contents
+
+## [Visibilty](#visibility--encapsulation)
+
+## [Type Check & Casts](#type-check-dan-casts)
+
+## [Getter Setter](#getter--setter)
+
+## [Anonymous](#anonymous-class)
+
+<br>
+<br>
+
+# The Contents
+
+<hr>
+<br>
+<br>
+
 # Visibility / Encapsulation
 
 ## Access Level
@@ -34,7 +53,7 @@
 
 # Type Check dan Casts
 
-Mengecek tipe dari class menggunakan `instanceof`
+Mengecek tipe dari `class` menggunakan `instanceof`
 
 example:
 
@@ -68,3 +87,44 @@ Aturan penulisan getter setter:
     <td>setXxx(tipeData $value)</td>
 </tr>
 </table>
+
+<br>
+<br>
+
+# Anonymous Class
+
+Membuat `class` tanpa nama
+
+example:
+
+```php
+interface HelloWorld
+{
+    function sayHello(): void;
+}
+
+// class tanpa nama otomatis di instance object
+// ke variabel $helloWorld
+// kirimkan juga constructnya jika ada
+$helloWorld = new class("Ucup") implements HelloWorld
+{
+    private string $name;
+
+    public function __construct(string $name)
+    {
+        $this->name = $name;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function sayHello(): void
+    {
+        echo "Hello World " . $this->getName() . PHP_EOL;
+    }
+};
+// panggil function sayHello
+$helloWorld->sayHello();
+```
